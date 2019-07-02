@@ -2,6 +2,6 @@ language: rust
 rust:
   - stable
 cache: cargo
+# rest of your existing "before_cache"
 before_cache:
   - rm -rf "$TRAVIS_HOME/.cargo/registry/src"
-  ⋮ # rest of your existing "before_cache"
