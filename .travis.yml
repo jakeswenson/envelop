@@ -1,7 +1,12 @@
 language: rust
 rust:
-  - stable
+- stable
 cache: cargo
-# rest of your existing "before_cache"
 before_cache:
-  - rm -rf "$TRAVIS_HOME/.cargo/registry/src"
+- rm -rf "$TRAVIS_HOME/.cargo/registry/src"
+deploy:
+- provider: cargo
+  on:
+    branch: oxidation
+  token:
+    secure: MNhWz9u61oTqv6qhjIWhXKWOrTcUBqmEftnFUB9+DWsfENgVz+iByfU3pJccp4Ymrd0FVtdqqz5++2CAxyhUo4WT7zpLf7Bwgt7votTcwJtns+vFwMc6ea00DEnqdnI6MHExnorRCsfjL06viC0WC68DNRPzktKoJLRND7h8s/6bFpdVVBDbFKWwMqFfd+XerPnQ62GN9w1U89tVZqRSsubGet/25YrAwYBZgiVB1n1iIxfNKwUZ+k4QJcYfdVQpIGFUSFVDKsbxXk0r/a615gYcHEyRvX6wLVmfcUge3qRKohgcdMB2n1VKt/T3zyB0nlGy6m0QrFkEAWo9Bj4E1zD4skjtEiArTcyP+W3jAU7/KlNmIuGEZ08YOfIVjs3BjhHCJumd4I3vW1pZFXXg15RFfZZctxiN2eK7xLXpq8tl1m/bNEcekzUfbdfYV3OPXpK0TOFh6Kvi8BgDSQOyTyMTXYsZpD0Fm+hpcM+Wg0iNloukkgBBq4cPeBnCKXr1HAyOHx++ukBAYyW8Vlr7QjWYVpoudnBOFnPf92h2w6XuHCfh0z8QDULmD8lz0X+vmXoyiIur1ifkUz/87gGchsW605FHr2NQJSfVFCnq4uUPiPamWjcH/utq5XW7a2kNkECE2M4l2+eE6UBRsLkAl2qAxGKNjtUEgrPu4ARz4Zs=
