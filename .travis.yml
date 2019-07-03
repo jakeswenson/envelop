@@ -13,7 +13,8 @@ before_install:
 before_cache:
 - rm -rf "$TRAVIS_HOME/.cargo/registry/src"
 deploy:
-- provider: cargo
+- provider: script
+  script: cargo publish --manifest-path lib/Cargo.toml
   on:
     branch: oxidation
   token:
