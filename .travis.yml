@@ -3,19 +3,21 @@ rust:
 - stable
 cache:
   directories:
-    - $HOME/protobuf
-    # https://docs.travis-ci.com/user/caching/#rust-cargo-cache
-    - $HOME/.cargo
-    - $TRAVIS_BUILD_DIR/target
+  - "$HOME/protobuf"
+  - "$HOME/.cargo"
+  - "$TRAVIS_BUILD_DIR/target"
 before_install:
-  - sh ./build/install-protoc.sh
-  - export PATH=$PATH:$HOME/protobuf/bin
+- sh ./build/install-protoc.sh
+- export PATH=$PATH:$HOME/protobuf/bin
 before_cache:
 - rm -rf "$TRAVIS_HOME/.cargo/registry/src"
 deploy:
 - provider: script
-  script: cargo publish --manifest-path lib/Cargo.toml
+  script: cargo publish --manifest-path lib/Cargo.toml --token "$CARGO_TOKEN"
   on:
     branch: oxidation
   token:
     secure: MNhWz9u61oTqv6qhjIWhXKWOrTcUBqmEftnFUB9+DWsfENgVz+iByfU3pJccp4Ymrd0FVtdqqz5++2CAxyhUo4WT7zpLf7Bwgt7votTcwJtns+vFwMc6ea00DEnqdnI6MHExnorRCsfjL06viC0WC68DNRPzktKoJLRND7h8s/6bFpdVVBDbFKWwMqFfd+XerPnQ62GN9w1U89tVZqRSsubGet/25YrAwYBZgiVB1n1iIxfNKwUZ+k4QJcYfdVQpIGFUSFVDKsbxXk0r/a615gYcHEyRvX6wLVmfcUge3qRKohgcdMB2n1VKt/T3zyB0nlGy6m0QrFkEAWo9Bj4E1zD4skjtEiArTcyP+W3jAU7/KlNmIuGEZ08YOfIVjs3BjhHCJumd4I3vW1pZFXXg15RFfZZctxiN2eK7xLXpq8tl1m/bNEcekzUfbdfYV3OPXpK0TOFh6Kvi8BgDSQOyTyMTXYsZpD0Fm+hpcM+Wg0iNloukkgBBq4cPeBnCKXr1HAyOHx++ukBAYyW8Vlr7QjWYVpoudnBOFnPf92h2w6XuHCfh0z8QDULmD8lz0X+vmXoyiIur1ifkUz/87gGchsW605FHr2NQJSfVFCnq4uUPiPamWjcH/utq5XW7a2kNkECE2M4l2+eE6UBRsLkAl2qAxGKNjtUEgrPu4ARz4Zs=
+env:
+  global:
+    secure: ak/aggGEgJXkl3YuPvzl8IxGziSEK+i+BTCx9ttXnYzH4oUVMrZcFYqzHy0KpXmsP/z+pS7yzowDTWp2dcKeBBSk8NOctTtngBOZWrMfUt3bKIaAaiWNKiOfhLdvQbojetoWjYwyFWk4JzPDnQzJ4t9rmhBSSQkh+Vcs12Y+6ZsCMVU5ZRrzmC1X0HPeB1wBZeDvd4GElx42FJXyXo94H1j/T8QOgnrs2QO6r2mS6wOHzDuN8bw1cl9nR6sfqb5Nh4P9E3dZ2LjBhEt+Pgo23Ui+xskQ1G/JP+iLu8sqA+KJWZGEVUcf7P3mACUNith5XAs9iAka0lG4r9u+6sDFykCMhTMQsGHm/iYb9ZF/LPeHQFJaNcWWGif+BZvx1J8sSMyY4opdnWQfI92+EW7m5w8pC09EQHJXVrerBqBG7a8Mno3HAUNrRYbcpJWoOrOlWnyWF8G/OiYAZslYniXttUeApfofn77Uhb8lMSB7sPq0vVOwOpQjmYEKmQoxpSHTUVyZ4qtRefv86quaHiqSweIJI/BfkxXy9JlQdBsL8drMRDAw61OOGUqLh5spTfDOt/RwEhDiSPi2X9YRZR7QwceHPO8DG/BSv/RFxUVhw9Y9RONB8KxtZpeMfqBDqHcxvfNwiv8G3MzyTqUraiFRAnMa14rpYB0Se2g4eQHabs4=
