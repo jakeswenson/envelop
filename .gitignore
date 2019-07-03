@@ -54,3 +54,5 @@ dmypy.json
 target/
 **/*.rs.bk
 Cargo.lock
+src/protos/
+!src/protos/mod.rs

@@ -1,0 +1,19 @@
+syntax = "proto3";
+
+package envelop.protos;
+
+message KeyId {
+    string identifier = 1;
+}
+
+message EncryptedKey {
+    KeyId encryption_key_id = 1;
+    bytes nonce = 2;
+    bytes encrypted_key = 3;
+}
+
+message EncryptionResult {
+    EncryptedKey key = 1;
+    bytes nonce = 2;
+    bytes encrypted_data = 3;
+}

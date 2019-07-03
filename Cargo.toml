@@ -7,3 +7,16 @@ description = "An envelope encryption library porting godaddy/asherah to rust"
 license-file = "LICENSE"
 
 [dependencies]
+#rust-crypto = "^0.2"
+#rand = "0.7"
+#prost = "0.5.0"
+ring = "0.14.6"
+protobuf="2.7.0"
+
+[dependencies.bytes]
+version = "0.4.12"
+features = ["serde"]
+
+[build-dependencies]
+#prost-build = "0.5.0"
+protoc-rust = "2.7.0"
