@@ -89,7 +89,7 @@ pub fn decrypt(encrypted_data: EncryptionResult, parent_key: &Key) -> Result<Vec
 
 #[cfg(test)]
 mod tests {
-  use crate::envelop::{encrypt, create_wrapping_key, decrypt, create_key};
+  use crate::core::{encrypt, decrypt, create_key};
   use std::error::Error;
   use std::str::FromStr;
   use protobuf::Message;
@@ -100,7 +100,7 @@ mod tests {
     let key = create_key(&rng, &ring::aead::AES_256_GCM, "_IK_".to_string())?;
     let clear_bytes = b"hello world";
     let mut encrypted_result = encrypt(&key, &clear_bytes.as_ref())?;
-    let serialized = encrypted_result.write_to_bytes()?;
+    let serialized: Vec<u8> = encrypted_result.write_to_bytes()?;
     let deserialized_result: crate::protos::encryption_result::EncryptionResult =
       protobuf::parse_from_bytes(&serialized)?;
     let result = decrypt(deserialized_result, &key)?;
