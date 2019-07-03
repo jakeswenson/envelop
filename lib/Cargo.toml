@@ -1,6 +1,6 @@
 [package]
 name = "envelop"
-version = "0.0.1-alpha.3"
+version = "0.0.1-alpha.4"
 authors = ["Jake Swenson <jake@jakeswenson.com>"]
 edition = "2018"
 description = "An envelope encryption library porting godaddy/asherah to rust"
