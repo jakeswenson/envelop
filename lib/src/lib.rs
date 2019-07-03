@@ -1,4 +1,3 @@
-use protobuf::types;
 mod core;
 pub mod protos;
 
