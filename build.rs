@@ -8,5 +8,5 @@ fn main() {
         customize: Customize {
             ..Default::default()
         },
-    }).expect("protoc")
+    }).expect("protoc");
 }

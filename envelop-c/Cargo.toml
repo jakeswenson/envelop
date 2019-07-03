@@ -1,0 +1,9 @@
+[package]
+name = "envelop-c"
+version = "0.0.1-alpha.1"
+authors = ["Jake Swenson <jake@jakeswenson.com>"]
+edition = "2018"
+
+[dependencies]
+libc = "0.2.58"
+envelop = { path = "../lib"}

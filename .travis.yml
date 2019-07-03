@@ -1,7 +1,15 @@
 language: rust
 rust:
 - stable
-cache: cargo
+cache:
+  directories:
+    - $HOME/protobuf
+    # https://docs.travis-ci.com/user/caching/#rust-cargo-cache
+    - $HOME/.cargo
+    - $TRAVIS_BUILD_DIR/target
+before_install:
+  - sh ./build/install-protoc.sh
+  - export PATH=$PATH:$HOME/protobuf/bin
 before_cache:
 - rm -rf "$TRAVIS_HOME/.cargo/registry/src"
 deploy:
